@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Slackey&display=swap');
+
+.app-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #000000;
+}
+
+.jungle-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* The content that gets revealed */
+.content {
+  text-align: center;
+  color: white;
+  z-index: 1;
+ font-family: "Slackey", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* The button inside the content */
+.reveal-button {
+  padding: 15px 30px;
+  font-size: 18px;
+  background-color: #ff8c00;
+  color: black;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 20px;
+}
+
+.reveal-button:hover {
+  background-color: #e67e00;
+}
+
+/* Base styles for all four leaf images */
+.leaf {
+  position: absolute;
+  width: 55vw;
+  height: auto;
+  object-fit: cover;
+  z-index: 2;
+  transition: transform 0.8s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+/* --- Positioning for each corner --- */
+
+.leaf.top-left {
+  top: 0;
+  left: 0;
+  transform-origin: top left;
+}
+
+.leaf.top-right {
+  top: 0;
+  right: 0;
+  transform-origin: top right;
+}
+
+.leaf.bottom-left {
+  top: 100vh;
+  left: 0;
+  transform-origin: top left;
+  transform: scaleY(-1); /* Flip it up into view */
+}
+
+.leaf.bottom-right {
+  top: 100vh;
+  right: 0;
+  transform-origin: top right;
+  transform: scaleY(-1); /* Flip it up into view */
+}
+
+/* --- Hover Animations --- */
+/* When the container is hovered, apply these transforms to the leaves */
+
+.jungle-container:hover .leaf.top-left {
+  transform: translate(-15%, -15%);
+}
+
+.jungle-container:hover .leaf.top-right {
+  transform: translate(15%, -15%);
+}
+
+.jungle-container:hover .leaf.bottom-left {
+  transform: scaleY(-1) translate(-15%, -15%);
+}
+
+.jungle-container:hover .leaf.bottom-right {
+  transform: scaleY(-1) translate(15%, -15%);
+}

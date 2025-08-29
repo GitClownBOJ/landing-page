@@ -1,68 +1,67 @@
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+    --primary-green: #4CAF50;
+    --secondary-green: #45a049;
+    --road-gray: #808080;
+    --background-white: #f9f9f9;
+    --text-dark: #333333;
 }
 
 body {
   margin: 0;
+  background-color: #f9f9f9; /* Optional: Sets a light background color */
+    font-family: "Stackey", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    background-color: var(--primary-green);
+    padding: 20px 30px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    z-index: 1000;
+    background: linear-gradient(to right, #4CAF50, #2E8B57);
+    position: sticky;
+    top: 0;
+}
+.navbar {
   display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  align-items: center;
+  max-width: 1200px; /* Limits the width of the content */
+  margin: 0 auto; /* Centers the navbar */
+  padding: 0 2rem; /* Spacing on the sides */
+  width: 100%;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+
+@keyframes gradient-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
+  .cta-button {
+      background: linear-gradient(-45deg, #1a4314, #2e6d23, #12786b, #004445);
+  background-size: 400% 400%; /* Make the background much larger than the button */
+  
+  /* Apply the animation */
+  animation: gradient-animation 8s ease infinite;
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 1.0rem;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 10px #39FF14;
+    margin-left: auto;
   }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
-}
