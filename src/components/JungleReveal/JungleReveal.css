@@ -5,14 +5,16 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
+  width: 100vw;
   background-color: #000000;
+  overflow: visible;
+  position: relative;
 }
 
 .jungle-container {
   position: relative;
   width: 100%;
   height: 100%;
-  overflow: hidden;
   cursor: pointer;
   display: flex;
   justify-content: center;
@@ -31,19 +33,21 @@
 
 /* The button inside the content */
 .reveal-button {
-  padding: 15px 30px;
-  font-size: 18px;
-  background-color: #ff8c00;
-  color: black;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  margin-top: 20px;
+    background-color: var(--primary-green);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 1.0rem;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 10px #39FF14;
 }
 
 .reveal-button:hover {
-  background-color: #e67e00;
+      background-color: #C65102;
+    transform: translateY(-2px); /* Liikuta nappia hieman ylöspäin */
+    box-shadow: 0 0 10px #39FF14, 0 0 30px rgba(57, 255, 20, 0.6);
 }
 
 /* Base styles for all four leaf images */
@@ -84,8 +88,38 @@
   transform: scaleY(-1); /* Flip it up into view */
 }
 
-/* --- Hover Animations --- */
-/* When the container is hovered, apply these transforms to the leaves */
+.leaf.middle-left, .leaf.middle-right {
+  display: none; /* Hidden by default on desktop */
+}
+
+@media screen and (max-width: 768px) {
+  .leaf.middle-left {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: -20%;
+    transform: translateY(-50%);
+    width: 90vw;
+    height: 90vh;
+    object-fit: contain;
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .leaf.middle-right {
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: -20%;
+    transform: translateY(-50%);
+    width: 90vw;
+    height: 90vh;
+    object-fit: contain;
+    z-index: 1;
+    pointer-events: none;
+  }
+}
+
 
 .jungle-container:hover .leaf.top-left {
   transform: translate(-15%, -15%);
@@ -101,4 +135,29 @@
 
 .jungle-container:hover .leaf.bottom-right {
   transform: scaleY(-1) translate(15%, -15%);
+}
+
+@media screen and (max-width: 768px) {
+  .leaf {
+    /* Make leaves larger to ensure they cover the corners on smaller viewports */
+    height: 70vw;
+  }
+
+  .content h1 {
+    font-size: 3rem; /* Adjust font size for readability */
+  }
+
+  .content p {
+    font-size: 1rem;
+  }
+
+  .jungle-container:hover .leaf.middle-left {
+    transform: translate(-25%, -50%);
+  }
+
+  .jungle-container:hover .leaf.middle-right {
+    transform: translate(25%, -50%);
+  }
+
+  
 }

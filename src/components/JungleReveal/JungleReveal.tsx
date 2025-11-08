@@ -24,6 +24,16 @@ const JungleReveal: React.FC = () => {
         alt="Top-right jungle leaves"
       />
       <img
+        src="/mid-leaf.webp"
+        className="leaf middle-left"
+        alt="Middle-left jungle leaves"
+      />
+      <img
+        src="/mid-leaf-r.webp"
+        className="leaf middle-right"
+        alt="Middle-right jungle leaves"
+      />
+      <img
         src="/amgk_simx_210722.png"
         className="leaf bottom-left"
         alt="Bottom-left jungle leaves"
