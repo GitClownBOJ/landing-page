@@ -1,16 +1,20 @@
 import React from 'react'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import './App.css'
 import JungleReveal from './components/JungleReveal/JungleReveal.tsx';
+import Portfolio from './components/Portfolio/Portfolio.tsx';
 
 const App: React.FC = () => {
   return (
-    // The app-container class is now applied here, 
-    // as App is the root of your component tree.
-    <div className="app-container">
-      <JungleReveal />
-    </div>
+    <Router>
+      <div className="app-container">
+        <Routes>
+          <Route path="/" element={<JungleReveal />} />
+          <Route path="/portfolio" element={<Portfolio />} />
+        </Routes>
+      </div>
+    </Router>
   );
 };
 
-// Step 2: Export the App component so main.tsx can use it
 export default App;
